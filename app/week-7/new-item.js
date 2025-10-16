@@ -23,7 +23,7 @@ export default function NewItem({ onAddItem }) {
 
 	return (
 		<form onSubmit={handleSubmit}>
-			<section className="flex flex-col gap-4 p-6 rounded-lg w-full max-w-xs mx-auto border border-gray-300">
+			<section className="flex flex-col gap-4 p-6 rounded-lg w-full mx-auto border border-gray-300 mb-6">
 				<div className="text-lg font-bold mb-2">Name:</div>
 				<input type="text" placeholder="e.g., milk, 4 L 🥛" value={name} onChange={(e) => setName(e.target.value)} className="border border-gray-300 p-2 rounded" required />
 				<div className="text-lg font-bold mb-2">Quantity: <span className="text-cyan-700">{quantity}</span></div>
