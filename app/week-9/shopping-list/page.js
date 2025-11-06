@@ -3,10 +3,12 @@ import NewItem from './new-item';
 import ItemList from './item-list';
 import MealIdeas  from './meal-ideas';
 import itemsData from './items.json';
+import { useUserAuth } from '../../contexts/AuthContext';
 
 import { useState } from 'react';
 
 export default function Page() {
+	const { user } = useUserAuth();
 	const [items, setItems] = useState(itemsData);
 	const [selectedItemName, setSelectedItemName] = useState(null);
 
@@ -24,15 +26,19 @@ export default function Page() {
 	return (
 		<main className="mx-auto my-4 p-4 max-w-6xl flex flex-col justify-center">
 			<h1 className="mb-4 text-2xl font-bold text-center">Shopping List + Meal Ideas</h1>
-			<div className="flex gap-6">
-				<div className="flex-1 flex flex-col gap-6">
-					<NewItem onAddItem={handleAddItem} />
-					<ItemList items={items} onItemSelect={handleItemSelect} />
+			{user ? (
+				<div className="flex gap-6">
+					<div className="flex-1 flex flex-col gap-6">
+						<NewItem onAddItem={handleAddItem} />
+						<ItemList items={items} onItemSelect={handleItemSelect} />
+					</div>
+					<div className="flex-1">
+						<MealIdeas ingredient={selectedItemName} />
+					</div>
 				</div>
-				<div className="flex-1">
-					<MealIdeas ingredient={selectedItemName} />
-				</div>
-			</div>
+			) : (
+				<p className='text-center'>Please sign in to view your shopping list and meal ideas.</p>
+			)}
 		</main>
 	);
 }
