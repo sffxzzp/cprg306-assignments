@@ -31,7 +31,7 @@ export default function MealIdeas({ ingredient }) {
 			) : (
 				<ul className="grid grid-cols-1 gap-3">
 					{meals.map((meal) => (
-						<li key={meal.idMeal} className="flex items-center gap-4 p-4 border border-gray-200 rounded-xl shadow-sm text-white hover:bg-white hover:text-gray-800">
+						<li key={meal.idMeal} className="flex items-center gap-4 p-4 border rounded-xl shadow-sm dark:text-white dark:hover:bg-white hover:text-cyan-600 dark:hover:text-gray-800">
 							<Image src={meal.strMealThumb} alt={meal.strMeal} width={52} height={52} className="rounded-md object-cover flex-shrink-0" unoptimized />
 							<span className="font-medium">{meal.strMeal}</span>
 						</li>
