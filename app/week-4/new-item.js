@@ -4,8 +4,8 @@ import { useState } from 'react';
 export default function NewItem() {
 	const [quantity, setQuantity] = useState(1);
 
-	const increment = () => {if (quantity < 20) {setQuantity(quantity + 1)}};
-	const decrement = () => {if (quantity > 1) {setQuantity(quantity - 1)}};
+	const increment = () => {setQuantity(quantity < 20 ? quantity + 1 : quantity)};;
+	const decrement = () => {setQuantity(quantity > 1 ? quantity - 1 : quantity)};
 
 	return (
 		<section className="flex flex-col items-center gap-4 p-6 rounded-lg w-full max-w-xs mx-auto border border-gray-300">
