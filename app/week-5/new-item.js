@@ -30,8 +30,8 @@ export default function NewItem() {
 					<button type="button" id="increment-button" disabled={quantity >= 20} onClick={increment} className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-300 text-white-700 transition hover:border-blue-500 hover:text-blue-600 hover:cursor-pointer disabled:opacity-50 disabled:cursor-not-allowed">+</button>
 				</div>
 				<div className="text-sm text-white-500">Allowed range: <span className="font-bold text-cyan-300">1 - 20</span></div>
-				<div className="text-lg font-bold mb-2">Category:</div>
-				<select value={category} onChange={(e) => setCategory(e.target.value)} className="border border-gray-300 p-2 rounded">
+				<label htmlFor='category' className="text-lg font-bold mb-2">Category:</label>
+				<select id='category' value={category} onChange={(e) => setCategory(e.target.value)} className="border border-gray-300 p-2 rounded">
 					<option value="produce">Produce</option>
 					<option value="dairy">Dairy</option>
 					<option value="bakery">Bakery</option>
