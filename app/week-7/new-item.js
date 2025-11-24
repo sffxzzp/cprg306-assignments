@@ -8,7 +8,7 @@ export default function NewItem({ onAddItem }) {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
-		let id = Math.random().toString(36).substring(2,9).toUpperCase();
+		let id = Math.random().toString(36).substring(2, 9).toUpperCase();
 		const item = { id, name, quantity, category };
 		console.log(item);
 		onAddItem(item);
